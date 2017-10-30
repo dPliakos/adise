@@ -9,15 +9,24 @@ if( ! isset($_SESSION['username'])) {
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <title>Untitled 1</title>
-<link href="layout.css" rel="stylesheet" type="text/css" />
+<!-- <link href="layout.css" rel="stylesheet" type="text/css" /> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-<div id="top">
-<a href="index.php?p=start">Αρχική</a>
-<a href="?p=shopinfo">Κατάστημα</a>
-<a href="?p=products">Προϊόντα</a>
-<a href="?p=login">Login</a>
+<div id="top"  class="navbar navbar-inverse" >
+	<div class="container-fluid">
+		<ul class="nav navbar-nav">
+			<li> <a href="index.php?p=start">Αρχική</a> </li>
+			<li> <a href="?p=products">Προϊόντα</a> </li>
+			<li> <a href="?p=shopinfo">Κατάστημα</a> </li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li> <a href="?p=login">Login</a> </li>
+		</ul>
+	</div>
 </div>
 <div id="left">
 <?php
@@ -44,7 +53,7 @@ case "login" :		require "internal/login.php";
 case 'do_login':	require "internal/do_login.php";
 					break;
 
-default: 
+default:
 	print "Η σελίδα δεν υπάρχει";
 }
 ?>
