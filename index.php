@@ -8,7 +8,7 @@ if( ! isset($_SESSION['username'])) {
 ?>
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Untitled 1</title>
+<title> my php store </title>
 <!-- <link href="layout.css" rel="stylesheet" type="text/css" /> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,6 +16,7 @@ if( ! isset($_SESSION['username'])) {
 </head>
 
 <body>
+<!-- navigation bar -->
 <div id="top"  class="navbar navbar-inverse" >
 	<div class="container-fluid">
 		<ul class="nav navbar-nav">
@@ -28,36 +29,49 @@ if( ! isset($_SESSION['username'])) {
 		</ul>
 	</div>
 </div>
-<div id="left">
-<?php
-	print "<p>This is user: $_SESSION[username]</p>";
-	if($_SESSION['username']=='admin') {
-		print "<h2>Admin MENU</h2>";
-	}
-?>
-</div>
-<div id="content">
-<?php
-if( ! isset($_REQUEST['p'])) {
-	$_REQUEST['p']='start';
-}
-$p = $_REQUEST['p'];
-print "must require page: internal/$p";
-switch ($p){
-case "start" :		require "internal/start.php";
-					break;
-case "shopinfo": 	require "internal/shopinfo.php";
-					break;
-case "login" :		require "internal/login.php";
-					break;
-case 'do_login':	require "internal/do_login.php";
-					break;
 
-default:
-	print "Η σελίδα δεν υπάρχει";
-}
-?>
+<!-- sidebar left start -->
+<div class=" sidebar col-md-12">
+	<div id="left" class="col-md-3" >
+	<?php
+		//print "<p>This is user: $_SESSION[username]</p>";
+		if($_SESSION['username']=='admin') {
+			print "<h2>Admin MENU</h2>";
+			require "./internal/admin_menu.php";
+		} else if ($_SESSION["username"] != "?") {
+			print "<h2> Welcome " . $_SESSION["username"] . "</h2>";
+			require "./internal/costumer_menu.php";
+		}
+	?>
+	</div>
+
+	<!-- main content start -->
+	<div id="content" class="col-md-8">
+	<?php
+	if( ! isset($_REQUEST['p'])) {
+		$_REQUEST['p']='start';
+	}
+	$p = $_REQUEST['p'];
+	print "must require page: internal/$p";
+	switch ($p){
+	case "start" :		require "./internal/start.php";
+						break;
+	case "products" : require "./internal/products.php";
+						break;
+	case "shopinfo": 	require "internal/shopinfo.php";
+						break;
+	case "login" :		require "internal/login.php";
+						break;
+	case 'do_login':	require "internal/do_login.php";
+						break;
+
+	default:
+		print "Η σελίδα δεν υπάρχει";
+	}
+	?>
+	</div>
 </div>
+<!-- footer start -->
 <div id="footer"></div>
 </body>
 </html>
