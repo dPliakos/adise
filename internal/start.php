@@ -1,16 +1,5 @@
-<div class="col-md-6"> </div>
-<div class="panel panel-default col-md-6">
-  <center>
-    This is the start page <br />
-    This is the start page <br />
-    This is the start page <br />
-    This is the start page <br />
-    This is the start page <br />
-    This is the start page <br />
-    This is the start page <br />
-    This is the start page <br />
-    This is the start page <br />
-    This is the start page <br />
-    This is the start page <br />
-  </center>
+<div class="col-md-1"> </div>
+<div class="col-md-6">
+  <br /> <br/>
+    <h2> This is a home page! </h2>
 </div>

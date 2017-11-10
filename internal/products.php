@@ -1,5 +1,7 @@
-<div class="col-md-4"> </div>
-<div class="panel panel-heading col-md-8">
+<br/> <br/>
+<div class="col-md-6">
   <div>
-</div>
-<div class="col-md-4"> </div>
+
+    <h2> These are our product! </h2>
+
+  </div>

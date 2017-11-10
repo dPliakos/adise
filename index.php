@@ -24,8 +24,11 @@ if( ! isset($_SESSION['username'])) {
 			<li> <a href="?p=products">Προϊόντα</a> </li>
 			<li> <a href="?p=shopinfo">Κατάστημα</a> </li>
 		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li> <a href="?p=login">Login</a> </li>
+		<ul class="nav navbar-nav">
+			<?php
+				require_once "./internal/common.php";
+				if (!isLoggedIn()) print '<li> <a href="?p=login">Login</a> </li>';
+			?>
 		</ul>
 	</div>
 </div>
@@ -35,11 +38,11 @@ if( ! isset($_SESSION['username'])) {
 	<div id="left" class="col-md-3" >
 	<?php
 		//print "<p>This is user: $_SESSION[username]</p>";
-		if($_SESSION['username']=='admin') {
-			print "<h2>Admin MENU</h2>";
-			require "./internal/admin_menu.php";
-		} else if ($_SESSION["username"] != "?") {
+		require_once "./internal/common.php";
+		if (isLoggedIn()) {
 			print "<h2> Welcome " . $_SESSION["username"] . "</h2>";
+
+			if(isAdmin()) require "./internal/admin_menu.php";
 			require "./internal/costumer_menu.php";
 		}
 	?>
@@ -52,7 +55,7 @@ if( ! isset($_SESSION['username'])) {
 		$_REQUEST['p']='start';
 	}
 	$p = $_REQUEST['p'];
-	print "must require page: internal/$p";
+	//print "must require page: internal/$p";
 	switch ($p){
 	case "start" :		require "./internal/start.php";
 						break;
@@ -64,7 +67,8 @@ if( ! isset($_SESSION['username'])) {
 						break;
 	case 'do_login':	require "internal/do_login.php";
 						break;
-
+	case 'logout': require "internal/logout.php";
+						break;
 	default:
 		print "Η σελίδα δεν υπάρχει";
 	}
