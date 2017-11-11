@@ -1,12 +1,12 @@
 ﻿#top {
-	height:3em; 
+	height:3em;
 	vertical-align:middle;
 	background-color: #ddd;
 	width:100%;
 }
 
 #left {
-	
+
 	width:20em;
 	background-color:#aaa;
 	display:inline-block;
@@ -21,7 +21,7 @@
 }
 
 #footer {
-	height:3em; 
+	height:3em;
 	vertical-align:middle;
 	background-color: #ddd;
 	width:100%;

@@ -1,5 +1,5 @@
 <?php
-  require_once "common.php";
+  require_once "internal/utils/common.php";
 
   if (isLoggedIn()) {
     unset($_SESSION["username"]);
