@@ -21,7 +21,7 @@ if( ! isset($_SESSION['username'])) {
 <div id="top"  class="navbar navbar-inverse" >
 	<div class="container-fluid">
 		<div class="navbar-header">
-      <a class="navbar-brand" href="#">4o Εργαστήριο</a>
+      <a class="navbar-brand" href="#">5o Εργαστήριο</a>
     </div>
 		<ul class="nav navbar-nav">
 			<li> <a href="index.php?p=start">Αρχική</a> </li>
