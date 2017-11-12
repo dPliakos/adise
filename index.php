@@ -89,6 +89,8 @@ if( ! isset($_SESSION['username'])) {
 						break;
 	case 'logout': require "internal/users/logout.php";
 						break;
+	case 'userinfo': require "internal/users/userinfo.php";
+						break;
 	default:
 		print "Η σελίδα δεν υπάρχει";
 	}

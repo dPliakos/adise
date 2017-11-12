@@ -68,7 +68,7 @@
        <div class='col-md-8'>
          <form class='col-md-4' method="get">
            <input type="text" name="p" value="empty_cart" hidden/>
-           <input type="submit" value="Άδειασμα καλαθιού" class="btn btn-alert" hidden/>
+           <input type="submit" value="Άδειασμα καλαθιού" class="btn btn-default" hidden/>
          </form>
          <form class='col-md-3 col-md-offset-1' method="get">
            <input type="text" name="p" value="buy" hidden/>
