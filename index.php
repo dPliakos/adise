@@ -27,6 +27,7 @@ if( ! isset($_SESSION['username'])) {
 			<li> <a href="index.php?p=start">Αρχική</a> </li>
 			<li> <a href="?p=products">Προϊόντα</a> </li>
 			<li> <a href="?p=shopinfo">Κατάστημα</a> </li>
+			<li> <a href="?p=cart">Καλάθι Αγορών </a> </li>
 		</ul>
 		<ul class="nav navbar-nav">
 			<?php
@@ -45,7 +46,7 @@ if( ! isset($_SESSION['username'])) {
 		require_once "./internal/utils/common.php";
 
 		// if products is open, show the categories menu.
-		if (isRequested("products")) {
+		if (isRequested("products") || isRequested("product")) {
 			print "<h2> Categories </h2>";
 			require "./internal/left_menu/productsMenu.php";
 		}
@@ -73,7 +74,13 @@ if( ! isset($_SESSION['username'])) {
 						break;
 	case "products" : require "./internal/products.php";
 						break;
-	case "shopinfo": 	require "internal/shopinfo.php";
+	case "product" 	: require "./internal/product.php";
+						break;
+	case "shopinfo"	: require "internal/shopinfo.php";
+						break;
+	case "cart"			:
+	case "empty_cart":
+	case "add_cart" : require "internal/cart.php";
 						break;
 	case "login" :		require "internal/users/login.php";
 						break;

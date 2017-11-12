@@ -1,5 +1,4 @@
 <?php
-//  function openDbConnection() {
     $host="localhost";
     $user="root";
     $password="123456";

@@ -9,8 +9,8 @@
 
       $category_statement->bind_result($Name, $ID);
 
-        while($category_statement->fetch())
-          print "<li> <a href='?p=products&category=". $ID . "'> " . $Name . "</a> </li>";
+      while($category_statement->fetch())
+        print "<li> <a href='?p=products&category=". $ID . "'> " . $Name . "</a> </li>";
 
    ?>
 </ul>
