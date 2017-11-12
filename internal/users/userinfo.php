@@ -38,7 +38,8 @@
       <label> Phone number : </label>
       <input type="text" value=<?php print $phone; ?> class="form-control" name="pn"/>
       <br/>
-      <input type="submit" class="btn btn-primary" value="Save" action="?"/>
+      <input type="submit" class="btn btn-primary" value="Αποθήκευση" action="?"/>
+      <input type="reset" class="btn btn-default" value="Αναίρεση"   action="?"/>
       <input type="text" name="p" value="userinfo" hidden/>
       <input type="text" name="save" value="t" hidden/>
     </form>
