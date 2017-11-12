@@ -14,6 +14,25 @@
         }
       } elseif(isRequested("empty_cart")) {
         unset($_SESSION["cart"]);
+      } elseif(isRequested("buy")) {
+        if (!isLoggedIn()) die("You have to log in to buy");
+        if (!cartExist())  die("Cart is empty");
+
+        $sql="INSERT INTO orders (customer, oDate) values (?, now())";
+        $buy_stat = $conn->prepare($sql);
+        $buy_stat ? $buy_stat->bind_param("i", $_SESSION["userid"]) : die("sql buy1 syntax error");
+        $buy_stat ? $buy_stat->execute()                            : die("sql bind error");
+
+        $orderid = $conn->insert_id;
+        require "internal/utils/dbconnect.php";
+        $sql="INSERT INTO orderdetails (Orders, Quantity, Product) values(?, ? , ?)";
+        $buy_stat = $conn->prepare($sql);
+        foreach ($_SESSION["cart"] as $pid => $quant) {
+          $buy_stat ? $buy_stat->bind_param("iii", $orderid, $quant, $pid) : die("sql buy2 syntax error");
+          $buy_stat ? $buy_stat->execute()                                 : die("sql bind error");
+        }
+        print "Order Successfully!";
+        unset($_SESSION["cart"]);
       }
 
       if (cartExist()) {

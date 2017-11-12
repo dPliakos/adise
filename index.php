@@ -80,6 +80,7 @@ if( ! isset($_SESSION['username'])) {
 						break;
 	case "cart"			:
 	case "empty_cart":
+	case "buy"			:
 	case "add_cart" : require "internal/cart.php";
 						break;
 	case "login" :		require "internal/users/login.php";
