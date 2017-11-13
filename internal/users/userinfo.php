@@ -9,11 +9,11 @@
         $stat = "UPDATE customer  SET FName=?, LName=?, Address=?, Phone=? WHERE ID = ?";
         $stat = $conn->prepare($stat);
         $stat ? $stat->bind_param("ssssi",
-          $_REQUEST["fn"],
-          $_REQUEST["ln"],
-          $_REQUEST["ad"],
-          $_REQUEST["pn"],
-          $_SESSION["userid"])
+          stripslashes(trim($_REQUEST["fn"])),
+          stripslashes(trim($_REQUEST["ln"])),
+          stripslashes(trim($_REQUEST["ad"])),
+          stripslashes(trim($_REQUEST["pn"])),
+          stripslashes(trim($_SESSION["userid"])))
           : die("sql syntax error");
         $stat ? $stat->execute() : die("sql bind error");
       }
