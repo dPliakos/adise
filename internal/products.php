@@ -18,10 +18,13 @@
       $prod_stat->bind_result($ID, $title, $price);
 
       while($prod_stat->fetch()) {
-        print "<a href='?p=product&category=${_REQUEST['category']}&product=$ID' class='row product_line'>";
-        print " <div class='col-md-10 product-title'> " . $title . "</div>";
-        print " <div class='col-md-2 product-type'> " . as_price($price) . "</div>";
-        print "</a>";
+        print "<div class='row product_line' >";
+          print "<a href='?p=product&category=${_REQUEST['category']}&product=$ID' >";
+          print " <div class='col-md-8 product-title'> " . $title . "</div>";
+          print " <div class='col-md-1 product-type'> " . as_price($price) . "</div>";
+          print "</a>";
+          print " <div class='col-md-2 btn btn-default' onclick='addToCart($ID, 1)'> To Cart </div> ";
+        print "</div><br>";
       }
 
      ?>
