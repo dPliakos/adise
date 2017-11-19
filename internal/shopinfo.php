@@ -1,8 +1,8 @@
-<br/><br/>	
+<br/><br/>
 <h1 >
 This is the page about the our shop
 </h1>
-
+<hr/>
 <p>
 text text text text text text text text text text text text text <br/>
 text text text text text text text text text text text text text <br/>

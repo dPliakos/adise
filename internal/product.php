@@ -11,9 +11,10 @@
       $sprod_stat->fetch();
 
       print "<h3>" . $title . "</h3>";
-      print "<div class='col-md-12'>" . $desc . "</div>";
+      print "<hr/>";
+      print "<div class='row'> <div class='col-md-12'>" . $desc . "</div> </div>";
      ?>
-     
+     <br/>
      <div class="row">
        <div class="col-md-12" > Price: <?= as_price($price) ?> </div>
      </div>

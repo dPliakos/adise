@@ -1,6 +1,7 @@
 <br/> <br/>
 <div class="panel panel-default col-md-10 product">
   <h3> Καλάθι αγορών </h3>
+  <hr/>
   <div>
     <?php
       require "internal/utils/dbconnect.php";
@@ -47,7 +48,7 @@
         print "<div class='col-md-2'> Price </div>";
         print "</div> <br/>";
       } else {
-        print "<h3> Cart is empty. </h3>";
+        print "<h4> Cart is empty. </h4>";
         return;
       }
 

@@ -9,7 +9,7 @@
       $cat_stat ? $cat_stat->execute()                               : die ("sql bind param error ");
       $cat_stat->bind_result($name);
 
-      print ($cat_stat->fetch() ? "<h3> $name </h3>" : "");
+      print ($cat_stat->fetch() ? "<h3> $name </h3><hr/>" : "");
 
       require "./internal/utils/dbconnect.php";
       $prod_stat = $conn->prepare("SELECT ID, Title, Price FROM product where Category = ?");
