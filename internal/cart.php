@@ -59,7 +59,7 @@
         print "<div class='row'>";
         print "<div class='col-md-8'> $title </div>";
         print "<div class='col-md-2'> $quantity </div>";
-        print "<div class='col-md-2'> $subtotal  </div>";
+        print "<div class='col-md-2'> ". as_price($subtotal) ."  </div>";
         print "</div>";
       }
      ?>
@@ -75,7 +75,7 @@
            <input type="submit" value="Αγορά" class="btn btn-primary" />
          </form>
       </div>
-       <div class='col-md-4'> Total: <?php print $sum  ?> </div>
+       <div class='col-md-4'> Total: <?= as_price($sum)  ?> </div>
      </div>
   </div>
 </div>

@@ -37,4 +37,8 @@ function addToCart($pid) {
     $_SESSION["cart"] = array();
   }
 }
+
+function as_price($num) {
+  return $num . "€";
+}
 ?>

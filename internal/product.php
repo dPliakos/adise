@@ -13,7 +13,10 @@
       print "<h3>" . $title . "</h3>";
       print "<div class='col-md-12'>" . $desc . "</div>";
      ?>
-     <br /> <br/>
+     
+     <div class="row">
+       <div class="col-md-12" > Price: <?= as_price($price) ?> </div>
+     </div>
      <div class="row">
        <form class="col-md-10" method="get">
          <input type="number" name="quant" value="1"/>
