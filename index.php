@@ -84,6 +84,9 @@ if( ! isset($_SESSION['username'])) {
 	case "buy"			:
 	case "add_cart" : require "internal/cart.php";
 						break;
+	case "showorders": require "internal/showall_orders.php";
+	//case "showorders": require "internal/orders/get_orders.php";
+						break;
 	case "login" :		require "internal/users/login.php";
 						break;
 	case 'do_login':	require "internal/users/do_login.php";

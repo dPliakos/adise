@@ -11,3 +11,17 @@ function addToCart(pid, qty, btn=null) {
 function showMessage(request) {
     alert("Added to cart!");
 }
+
+function requestOrders() {
+  var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP");
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState==4 && this.status == 200) showOrders(this.responseText);
+  }
+  xmlhttp.open("POST", "internal/get_orders.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send();
+}
+
+function showOrders(txt) {
+  document.getElementById("orders_container").innerHTML = txt;
+}

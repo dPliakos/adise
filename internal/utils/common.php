@@ -41,4 +41,32 @@ function addToCart($pid) {
 function as_price($num) {
   return $num . "€";
 }
+
+function as_name($fname, $lname) {
+  return "$fname $lname";
+}
+
+function get_user($id) {
+  require "./utils/dbconnect.php";
+  $customer = array();
+  $sql = "SELECT Fname, Lname, Address, Phone, uname FROM customer WHERE ID=?";
+  $statement = $conn->prepare($sql);
+  $statement ? $statement->bind_param("i", $id) : die("sql syntax error");
+  $statement ? $statement->execute()       : die("sql bind error");
+  $statement ? $statement->bind_result($fname, $lname, $address, $phone, $username) : die ("sql error");
+  $statement ? $statement->fetch() : die ("sql error");
+
+  if (!isset($username)) return null;
+
+  $customer["fname"] = $fname;
+  $customer["lname"] = $lname;
+  $customer["address"] = $address;
+  $customer["phone"] = $phone;
+  $customer["uname"] = $username;
+  return $customer;
+}
+
+function get_order($oid) {
+
+}
 ?>
