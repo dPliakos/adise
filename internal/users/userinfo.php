@@ -9,11 +9,11 @@
         $stat = "UPDATE customer  SET FName=?, LName=?, Address=?, Phone=? WHERE ID = ?";
         $stat = $conn->prepare($stat);
         $stat ? $stat->bind_param("ssssi",
-          stripslashes(trim($_REQUEST["fn"])),
-          stripslashes(trim($_REQUEST["ln"])),
-          stripslashes(trim($_REQUEST["ad"])),
-          stripslashes(trim($_REQUEST["pn"])),
-          stripslashes(trim($_SESSION["userid"])))
+          $_REQUEST["fn"],
+          $_REQUEST["ln"],
+          $_REQUEST["ad"],
+          $_REQUEST["pn"],
+          $_SESSION["userid"])
           : die("sql syntax error");
         $stat ? $stat->execute() : die("sql bind error");
       }
@@ -27,16 +27,16 @@
     ?>
     <form class="form-group" method="POST">
       <label> First Name : </label>
-      <input type="text" value=<?php print $fname; ?> class="form-control" name="fn"/>
+      <input type="text" value='<?php print $fname; ?>' class="form-control" name="fn"/>
       <br/>
       <label> Last Name : </label>
-      <input type="text" value=<?php print $lname; ?> class="form-control" name="ln"/>
+      <input type="text" value='<?php print $lname; ?>' class="form-control" name="ln"/>
       <br/>
       <label> Address : </label>
-      <input type="text" value=<?php print $addr; ?> class="form-control" name="ad"/>
+      <input type="text" value='<?= $addr; ?>' class="form-control" name="ad"/>
       <br/>
       <label> Phone number : </label>
-      <input type="text" value=<?php print $phone; ?> class="form-control" name="pn"/>
+      <input type="text" value='<?php print $phone; ?>' class="form-control" name="pn"/>
       <br/>
       <input type="submit" class="btn btn-primary" value="Αποθήκευση" action="?"/>
       <input type="reset" class="btn btn-default" value="Αναίρεση"   action="?"/>
