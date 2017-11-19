@@ -8,7 +8,12 @@
 
       if (isRequested("add_cart")) {
         if (isValidCartRequest()) {
-          $_SESSION["cart"][$_REQUEST["pid"]] = $_REQUEST["quant"];
+          $pid = $_REQUEST["pid"];
+          if (isset($_SESSION["cart"][$pid])) {
+            $_SESSION["cart"][$pid] += $_REQUEST["quant"];
+          } else {
+            $_SESSION["cart"][$pid] = $_REQUEST["quant"];
+          }
         } else {
           print "invalid request";
         }
