@@ -3,7 +3,7 @@ function addToCart(pid, qty, btn=null) {
   xmlhttp.onreadystatechange = function() {
     if (this.readyState==4 && this.status == 200) showMessage();
   }
-  xmlhttp.open("POST", "index.php", true);
+  xmlhttp.open("POST", "internal/ajax/add2cart.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send("p=add_cart&pid=" + pid +"&quant=" + qty);
 }

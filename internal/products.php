@@ -23,7 +23,8 @@
           print " <div class='col-md-8 product-title'> " . $title . "</div>";
           print " <div class='col-md-1 product-type'> " . as_price($price) . "</div>";
           print "</a>";
-          print " <div class='col-md-2 btn btn-default' onclick='addToCart($ID, 1)'> To Cart </div> ";
+          // print " <div class='col-md-2 btn btn-default' onclick='addToCart($ID, 1)'> To Cart </div> ";
+          print " <a href='javascript:addToCart($ID, 1)' class='btn btn-default'> To Cart </a>";
         print "</div><br>";
       }
 
