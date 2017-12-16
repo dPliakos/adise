@@ -13,3 +13,7 @@
 .bold {
   font-weight: bold;
 }
+
+.users table {
+  border: 1px solid black;
+}

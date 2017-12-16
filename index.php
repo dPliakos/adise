@@ -73,6 +73,8 @@ if( ! isset($_SESSION['username'])) {
 	switch ($p){
 	case "start" :		require "./internal/start.php";
 						break;
+	case "users" 		: require "./internal/users/showUsers.php";
+					 	break;
 	case "products" : require "./internal/products.php";
 						break;
 	case "product" 	: require "./internal/product.php";
@@ -85,7 +87,9 @@ if( ! isset($_SESSION['username'])) {
 	case "add_cart" : require "internal/cart.php";
 						break;
 	case "showorders": require "internal/showall_orders.php";
+						break;
 	//case "showorders": require "internal/orders/get_orders.php";
+	case "showUSers" : require "internal/users/showAllUsers_json.php";
 						break;
 	case "login" :		require "internal/users/login.php";
 						break;

@@ -25,3 +25,35 @@ function requestOrders() {
 function showOrders(txt) {
   document.getElementById("orders_container").innerHTML = txt;
 }
+
+$("#users").ready( () => {
+  $.ajax(
+    {
+      url: "./internal/users/showAllUsers_json.php",
+      success: (result) => {
+        const decodedJson = JSON.parse(result);
+        showUsers(decodedJson);
+      }
+    }
+  )
+});
+
+
+function showUsers(userArray) {
+  var html = "";
+
+  userArray.forEach((record) => {
+      html += "<tr>"
+      for (key in record) {
+        html += "<td> " + record[key] + " </td>";
+      }
+      html += "</tr>";
+  });
+  $("#content table tbody").html(html);
+}
+
+
+
+$("#users").ready(function() {
+  console.log("uesrs ready");
+});
