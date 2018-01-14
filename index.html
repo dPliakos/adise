@@ -1,0 +1,28 @@
+<html>
+  <header>
+    <title> lab8 </title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="./js/mychess.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </header>
+  <body>
+    <center>
+      <div class="btn btn-primary" id="btnStart"> Έναρξη </div>
+      <br/>
+      <label> Παίκτης Α: </label>
+      <input type="text" id="pa" placeholder="player nickname"/>
+      <br/>
+      <label> Παίκτης B: </label>
+      <input type="text" id="pb" placeholder="player nickname" />
+      <br/>
+      <label> Επόμενη Κίνηση (x, y, x, y): </label>
+      <input type="text" id="move" placeholder="old X, old Y, new X, new Y" />
+      <div id="next_move" class="btn btn-primary"> Επόμενη Κίνηση </div>
+      <br/><br/>
+      <div id="chess_board">     </div>
+    </center>
+  </body>
+</html>

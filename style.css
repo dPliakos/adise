@@ -1,0 +1,19 @@
+.chess_square {
+  width: 40px;
+  height: 40px;
+  border: 1px solid grey;
+  text-align: center;
+}
+
+.black {
+  background-color: #DDD;
+}
+
+.white {
+  background-color: #FFF;
+}
+
+img {
+  width: 38px;
+  height: 38px;
+}
