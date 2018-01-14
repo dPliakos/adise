@@ -36,12 +36,15 @@ function move_board_piece($x,$y, $x1, $y1) {
   }
 
   require "./lib/dbconnect.php";
-  $sql = "update board set piece='" . $old_position["piece"] . "', piece_color='" . $old_position["piece_color"] . "' where x=" . $x1 . " and y=" . $y1;
-  $sql = $conn->prepare($sql);
+  // $sql = "update board set piece='" . $old_position["piece"] . "', piece_color='" . $old_position["piece_color"] . "' where x=" . $x1 . " and y=" . $y1;
+  // $sql = $conn->prepare($sql);
   // $sql->bind_param("ssii", ($old_position["piece"]), ($old_position["piece_color"]),  $x1, $y2);
   // print($sql->error);
-  $sql->execute();
+  // $sql->execute();
   // print($sql->error);
+
+  $update = $conn->prepare("Update board SET piece= :a AND piece_color= :b where x = :x AND y = :y");
+  $update->execute([":a"=> $old_position["piece"], ":b" => $old_position["piece_color"],":x" => $value1, ":y" => $value2]);
 
 
   $sql = "update board set piece=null, piece_color=null where x=? and y=?";
